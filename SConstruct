@@ -1,1 +1,1 @@
-Program('echo.c')
+SConscript(dirs=['can', 'echo'])
