@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+
+RUN apt-get update
+
+RUN apt-get -y install scons
+RUN apt-get install -y build-essential python-pip python-dev gcc phantomjs firefox
+RUN pip install robotframework
+
+COPY echo.c /
+COPY SConscript /
+COPY SConstruct /
+COPY test.robot /
+
+RUN gcc echo.c
+RUN scons
+
+CMD robot test.robot
+
