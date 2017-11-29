@@ -1,11 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update
-RUN apt-get install -y scons python-pip python-dev build-essential
-
-#RUN pip install scons
-RUN pip install robotframework
+RUN apt-get install -y scons build-essential
 
 COPY compile.sh .
-
-CMD sh /compile.sh
+ENTRYPOINT ["sh", "/compile.sh"]

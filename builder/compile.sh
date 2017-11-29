@@ -1,2 +1,2 @@
-gcc echo.c
+gcc $1
 scons
