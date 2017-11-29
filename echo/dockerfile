@@ -1,11 +1,6 @@
-FROM gcc:latest as compile
-WORKDIR /app
-COPY . /app
-RUN gcc echo.c
-
 FROM python:latest
 WORKDIR /app
-COPY --from=compile /app .
+COPY . /app
 RUN pip install scons
 RUN scons
 RUN pip install robotframework

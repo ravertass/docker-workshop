@@ -1,2 +1,2 @@
-gcc $1
+#gcc $1
 scons
