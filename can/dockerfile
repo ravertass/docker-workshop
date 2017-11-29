@@ -1,0 +1,11 @@
+#FROM gcc:latest as compile
+#WORKDIR /app
+#COPY . /app
+#RUN gcc can.c
+
+FROM python:latest
+WORKDIR /app
+COPY . /app
+RUN pip install scons
+RUN scons
+

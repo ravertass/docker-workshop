@@ -1,0 +1,2 @@
+gcc echo.c
+scons

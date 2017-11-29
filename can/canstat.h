@@ -1,30 +1,62 @@
 /**
- * \section LICENSE
- *                   Copyright 1994-2013 by KVASER AB, SWEDEN
+* <pre style="white-space: pre-wrap">
+ * This software is dual licensed under the following two licenses:
+ * BSD-new and GPLv2. You may use either one. See the included
+ * COPYING file for details.
  *
- *                        WWW: http://www.kvaser.com
+ * License: BSD-new
+ * ============================================================================
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the \<organization\> nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
  *
- * This software is furnished under a license and may be used and copied
- * only in accordance with the terms of such license.
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL \<COPYRIGHT HOLDER\> BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * \section DESCRIPTION
+ *
+ * License: GPLv2
+ * ============================================================================
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ * ---------------------------------------------------------------------------
+ * </pre>
+ *
  *
  *   Definitions for the CANLIB API.
  *
- * \file canlib.h
+ * \file canstat.h
  * \author Kvaser AB
- *
- * \note MATLAB users on Windows: if you define WIN32_LEAN_AND_MEAN before
- * including this file, you will see a lot less warnings.
  *
  * \defgroup General                 General
  * \defgroup CAN                     CAN
  * \defgroup ObjectBuffers           Object buffers
- * \win_start
- * \defgroup TimeDomainHandling      Time Domain Handling
- * \defgroup NamedParameterSettings  Named Parameter Settings
- * \defgroup tScript                 t-script
- * \win_end
  */
 #ifndef _CANSTAT_H_
 #define _CANSTAT_H_
@@ -258,8 +290,6 @@ typedef enum {
 #define canEVENT_ERROR          32002       ///< when a CAN bus error is reported by the CAN controller
 #define canEVENT_STATUS         32003       ///< when the CAN controller changes state
 #define canEVENT_ENVVAR         32004       ///< An envvar changed
-# define canEVENT_BUSONOFF       32005       ///< Bus on/off status changed
-# define canEVENT_REMOVED        32006       ///< Device removed
 /** @} */
 
 /**
@@ -279,8 +309,6 @@ typedef enum {
 #define canNOTIFY_ERROR         0x0004      ///< CAN bus error notification
 #define canNOTIFY_STATUS        0x0008      ///< CAN chip status change
 #define canNOTIFY_ENVVAR        0x0010      ///< An environment variable was changed by a script
-# define canNOTIFY_BUSONOFF      0x0020      ///< Notify on bus on/off status changed
-# define canNOTIFY_REMOVED       0x0040      ///< Notify on device removed
 /** @} */
 
 
@@ -487,6 +515,7 @@ typedef enum {
 #define canTRANSCEIVER_TYPE_LIN            19  ///< LIN
 #define canTRANSCEIVER_TYPE_KONE           20  ///< KONE
 #define canTRANSCEIVER_TYPE_CANFD          22  ///< CAN-FD
+#define canTRANSCEIVER_TYPE_CANFD_LIN      24  ///< HYBRID CAN-FD/LIN
 #define canTRANSCEIVER_TYPE_LINX_LIN       64
 #define canTRANSCEIVER_TYPE_LINX_J1708     66
 #define canTRANSCEIVER_TYPE_LINX_K         68

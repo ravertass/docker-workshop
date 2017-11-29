@@ -1,1 +1,1 @@
-Program('can.c', LIBS=['canlib32'], LIBPATH='.')
+Program('can.c', LIBS=['canlib'], LIBPATH='.')
